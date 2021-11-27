@@ -7,12 +7,15 @@ import 'grapesjs-preset-newsletter'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { DefaultHtml, DefaultCss } from '../component/LayoutGrapesjs/Page/Default'
+import SideBar from '../component/SideBar';
+import { BrorwserRouter as Router, Switch, Route } from 'react-router';
+import Link from 'next/link'
 
-export default function Home() {
+export default function Panel() {
   // layout
   useEffect(() => {
     grapesjs.init({
-      container : '#gjs',
+      container: '#gjs',
       i18n: {
         messages: { pt }
       },
@@ -35,36 +38,13 @@ export default function Home() {
     })
   })
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>Painel</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <header>
-            <div className={styles.logoSuperior}>GrapesJS</div>
-            <nav>
-              <div>CONSTRUTOR</div>
-              <div>MODELO</div>
-              <div>WEB</div>
-            </nav>
-        </header>
-        <div id="gjs">
-          {DefaultHtml}
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+      <SideBar />
+      <p>painel</p>
+    </>
   )
 }

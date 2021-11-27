@@ -637,7 +637,7 @@ const DefaultHtml = <>
 	<section className="am-sect">
 		<div className="container-width">
 			<div className="am-container">
-				<img className="img-phone" onmousedown="return false" src="https://grapesjs.com/img/phone-app.png"/>
+				<img className="img-phone" onMouseDown="return false" src="https://grapesjs.com/img/phone-app.png"/>
 				<div className="am-content">
 					<div className="am-pre">GERENTE DE ATIVOS</div>
 					<div className="am-title">Gerencie suas imagens com Gerente de ativos</div>
