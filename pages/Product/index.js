@@ -10,7 +10,7 @@ export default function Product() {
                 <title>Produtos</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <SideBar />
+            <SideBar name="Nicolas Estanislau"/>
             <main className={styles.main}>
                 <p>produto</p>
             </main>

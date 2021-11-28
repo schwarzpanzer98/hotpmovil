@@ -10,7 +10,7 @@ import { IconContext } from 'react-icons';
 import ArrowLeft from '../../assets/Icons/ArrowLeft';
 
 
-function SideBar() {
+function SideBar({ name }) {
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => {
@@ -25,10 +25,14 @@ function SideBar() {
                 {console.log(sidebar)}
             </div>
             {sidebar ? <nav className={styles.active}>
-                <ul className={styles.navMenuItems}>
+                <ul onClick={showSidebar} className={styles.navMenuItems}>
                     <li className={styles.navbarToogle}>
-                        <div className="menu-bars">
-                            <FaChevronLeft onClick={showSidebar} />
+                        <div className={styles.menuBars}>
+                            <FaChevronLeft  />
+                        </div>
+                        <div className={styles.accountContainer}>
+                            <p className={styles.nameUser}>Olá, {name}!</p>
+                            <a className={styles.myAccount}>Minha Conta</a>
                         </div>
                     </li>
                     <li className={styles.navText}>

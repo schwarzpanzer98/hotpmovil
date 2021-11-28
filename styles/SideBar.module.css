@@ -4,12 +4,21 @@
     display: flex;
     justify-content: start;
     align-items: center;
+    padding-left: 1rem;
 }
 
 .menuBars {
-    margin-left: 1rem;
     background: none;
     color: #fff;
+    opacity: 0.5;
+    transition: 350ms;
+
+}
+
+.menuBars:hover {
+    transition: 350ms;
+    opacity: 1;
+
 }
 
 .navMenu {
@@ -66,14 +75,39 @@
 .navMenuItems {
     width: 100%;
     padding-left: 0;
+    transition: 350ms;
 }
 
 .navbarToogle {
     color: #fff;
     list-style: none;
     margin-left: 1rem;
+    display: flex;
+    
+}
+
+.accountContainer {
+    padding-left: 16px;
+    
 }
 
 .spanText {
     margin-left: 10px;
+}
+
+.nameUser {
+    font-size: 12px;
+    color: #707780;
+    margin: 0;
+    width: 163px;
+}
+
+.myAccount {
+    font-size: 12px;
+    color: #fff
+}
+
+.myAccount:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }

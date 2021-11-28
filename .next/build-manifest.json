@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/GrapesJS": [
+    "/": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/GrapesJS.js"
+      "static/chunks/pages/index.js"
     ],
     "/Product": [
       "static/chunks/webpack.js",

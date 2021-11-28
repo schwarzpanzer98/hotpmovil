@@ -43,7 +43,7 @@ export default function Panel() {
         <title>Painel</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SideBar />
+      <SideBar name="Nicolas Estanislau"/>
       <p>painel</p>
     </>
   )
