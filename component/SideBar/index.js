@@ -19,7 +19,7 @@ function SideBar({ name }) {
     const itemsProduct = [
         {
             title: 'Cadastrar Produto',
-            path: '/Product'
+            path: '/Product',
         },
     ]
 
@@ -50,18 +50,28 @@ function SideBar({ name }) {
                     </li>
                     <li className={styles.navText} onClick={showSidebar}>
                         <Link href="/" >
-                            <a>
+                            <div className={styles.title}>
                                 <Panel width={21} height={21} fill={'#fff'} />
                                 <span className={styles.spanText}>Painel</span>
-                            </a>
+                            </div>
                         </Link>
 
                     </li>
                     <li className={styles.navText}>
-                        <SimpleAccordion icon={<Product width={21} height={21} fill={'#fff'} />} title={"Produtos"} items={itemsProduct} showsidebar={showSidebar} />
+                        <SimpleAccordion
+                            icon={<Product width={21} height={21} fill={'#fff'} />}
+                            title={"Produtos"}
+                            items={itemsProduct}
+                            showsidebar={showSidebar}
+                        />
                     </li>
                     <li className={styles.navText}>
-                        <SimpleAccordion icon={<Sales width={21} height={21} fill={'#fff'} />} title={"Vendas"} items={itemsSales} showsidebar={showSidebar}/>
+                        <SimpleAccordion
+                            icon={<Sales width={21} height={21} fill={'#fff'} />}
+                            title={"Vendas"}
+                            items={itemsSales}
+                            showsidebar={showSidebar}
+                        />
                     </li>
                 </ul>
             </nav> : <nav className={styles.navMenu}>
@@ -77,18 +87,28 @@ function SideBar({ name }) {
                     </li>
                     <li className={styles.navText} onClick={showSidebar}>
                         <Link href="/" >
-                            <a>
+                            <div className={styles.title}>
                                 <Panel width={21} height={21} fill={'#fff'} />
                                 <span className={styles.spanText}>Painel</span>
-                            </a>
+                            </div>
                         </Link>
 
                     </li>
                     <li className={styles.navText}>
-                        <SimpleAccordion icon={<Product width={21} height={21} fill={'#fff'} />} title={"Produtos"} items={itemsProduct} showsidebar={showSidebar} />
+                        <SimpleAccordion
+                            icon={<Product width={21} height={21} fill={'#fff'} />}
+                            title={"Produtos"}
+                            items={itemsProduct}
+                            showsidebar={showSidebar}
+                        />
                     </li>
                     <li className={styles.navText}>
-                        <SimpleAccordion icon={<Sales width={21} height={21} fill={'#fff'} />} title={"Vendas"} items={itemsSales} />
+                        <SimpleAccordion
+                            icon={<Sales width={21} height={21} fill={'#fff'} />}
+                            title={"Vendas"}
+                            items={itemsSales}
+                            showsidebar={showSidebar}
+                        />
                     </li>
                 </ul>
             </nav>}

@@ -12,29 +12,32 @@ export default function SimpleAccordion({ icon, title, items, showsidebar }) {
   return (
 
     <div>
-      <Accordion>
+      <Accordion className={styles.MuiAccordionRoot}>
         <AccordionSummary
+          className={styles.MuiAccordionSummaryExpandIconWrapper}
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>{icon}
+          <Typography className={styles.MuiTypographyRoot}>{icon}
             <span className={styles.spanText}>{title}</span></Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <ul>
-              {items.map((item, index) => {
-                return (
-                  <Link href={item.path}>
-                    <li key={index} onClick={showsidebar}>
+
+          {items.map((item, index) => {
+            return (
+              <ul className={styles.list}>
+                <li onClick={showsidebar} key={index}>
+                  <Typography>
+                    <Link href={item.path} >
                       {item.title}
-                    </li>
-                  </Link>
-                )
-              })}
-            </ul>
-          </Typography>
+                    </Link>
+                  </Typography>
+                </li>
+              </ul>
+
+            )
+          })}
         </AccordionDetails>
       </Accordion>
     </div>
