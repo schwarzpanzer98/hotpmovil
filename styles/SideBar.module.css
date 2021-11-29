@@ -21,6 +21,11 @@
 
 }
 
+
+.menuBars:first-child:hover {
+    cursor: pointer;
+}
+
 .navMenu {
     background-color: #053d4e;
     width: 163px;
@@ -42,16 +47,19 @@
     position: fixed;
     top: 0;
     left: 0;
-    transition: 850ms;
+    transition: 450ms;
 }
 
 .navText {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 0px8px 16px;
     list-style: none;
-    height: 60px;
+    padding: 16px 0;
+    /* border-bottom: 1px solid hsla(0,0%,100%,.1); */
+    border-top: 1px solid hsla(0,0%,100%,.1);
+
+    /* height: 60px; */
 }
 
 .navText a {
@@ -82,8 +90,8 @@
     color: #fff;
     list-style: none;
     margin-left: 1rem;
-    display: flex;
-    
+    display: flex;    
+    margin-bottom: 18px;
 }
 
 .accountContainer {

@@ -4,11 +4,10 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { FaChevronLeft } from 'react-icons/fa';
 import Panel from '../../assets/Icons/Panel';
 import Product from '../../assets/Icons/Product';
+import Sales from '../../assets/Icons/Sales';
 import Link from 'next/link';
 import styles from '../../styles/SideBar.module.css';
-import { IconContext } from 'react-icons';
-import ArrowLeft from '../../assets/Icons/ArrowLeft';
-
+import SimpleAccordion from '../Accordion'
 
 function SideBar({ name }) {
     const [sidebar, setSidebar] = useState(false);
@@ -16,26 +15,40 @@ function SideBar({ name }) {
     const showSidebar = () => {
         setSidebar(!sidebar)
     }
+
+    const itemsProduct = [
+        {
+            title: 'Cadastrar Produto',
+            path: '/Product'
+        },
+    ]
+
+    const itemsSales = [
+        {
+            title: 'Visão Geral',
+            path: '/'
+        },
+    ]
+
     return (
         <>
             <div className={styles.sidebar}>
                 <div className={styles.menuBars}>
                     <FaChevronRight onClick={showSidebar} />
                 </div>
-                {console.log(sidebar)}
             </div>
             {sidebar ? <nav className={styles.active}>
-                <ul onClick={showSidebar} className={styles.navMenuItems}>
+                <ul className={styles.navMenuItems}>
                     <li className={styles.navbarToogle}>
                         <div className={styles.menuBars}>
-                            <FaChevronLeft  />
+                            <FaChevronLeft onClick={showSidebar} />
                         </div>
                         <div className={styles.accountContainer}>
                             <p className={styles.nameUser}>Olá, {name}!</p>
                             <a className={styles.myAccount}>Minha Conta</a>
                         </div>
                     </li>
-                    <li className={styles.navText}>
+                    <li className={styles.navText} onClick={showSidebar}>
                         <Link href="/" >
                             <a>
                                 <Panel width={21} height={21} fill={'#fff'} />
@@ -45,24 +58,24 @@ function SideBar({ name }) {
 
                     </li>
                     <li className={styles.navText}>
-                        <Link href="/Product" >
-                            <a>
-                                <Product width={21} height={21} fill={'#fff'} />
-                                <span className={styles.spanText}>Produtos</span>
-                            </a>
-                        </Link>
-
+                        <SimpleAccordion icon={<Product width={21} height={21} fill={'#fff'} />} title={"Produtos"} items={itemsProduct} showsidebar={showSidebar} />
                     </li>
-
+                    <li className={styles.navText}>
+                        <SimpleAccordion icon={<Sales width={21} height={21} fill={'#fff'} />} title={"Vendas"} items={itemsSales} showsidebar={showSidebar}/>
+                    </li>
                 </ul>
             </nav> : <nav className={styles.navMenu}>
                 <ul className={styles.navMenuItems}>
                     <li className={styles.navbarToogle}>
-                        <div className="menu-bars">
-                            <AiOutlineClose />
+                        <div className={styles.menuBars}>
+                            <FaChevronLeft onClick={showSidebar} />
+                        </div>
+                        <div className={styles.accountContainer}>
+                            <p className={styles.nameUser}>Olá, {name}!</p>
+                            <a className={styles.myAccount}>Minha Conta</a>
                         </div>
                     </li>
-                    <li className={styles.navText}>
+                    <li className={styles.navText} onClick={showSidebar}>
                         <Link href="/" >
                             <a>
                                 <Panel width={21} height={21} fill={'#fff'} />
@@ -72,15 +85,11 @@ function SideBar({ name }) {
 
                     </li>
                     <li className={styles.navText}>
-                        <Link href="/Product" >
-                            <a>
-                                <Product width={21} height={21} fill={'#fff'} />
-                                <span className={styles.spanText}>Produtos</span>
-                            </a>
-                        </Link>
-
+                        <SimpleAccordion icon={<Product width={21} height={21} fill={'#fff'} />} title={"Painel"} items={itemsProduct} showsidebar={showSidebar} />
                     </li>
-
+                    <li className={styles.navText}>
+                        <SimpleAccordion icon={<Sales width={21} height={21} fill={'#fff'} />} title={"Vendas"} items={itemsSales} />
+                    </li>
                 </ul>
             </nav>}
         </>
