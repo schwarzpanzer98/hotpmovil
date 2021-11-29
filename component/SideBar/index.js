@@ -85,13 +85,14 @@ function SideBar({ name }) {
 
                     </li>
                     <li className={styles.navText}>
-                        <SimpleAccordion icon={<Product width={21} height={21} fill={'#fff'} />} title={"Painel"} items={itemsProduct} showsidebar={showSidebar} />
+                        <SimpleAccordion icon={<Product width={21} height={21} fill={'#fff'} />} title={"Produtos"} items={itemsProduct} showsidebar={showSidebar} />
                     </li>
                     <li className={styles.navText}>
                         <SimpleAccordion icon={<Sales width={21} height={21} fill={'#fff'} />} title={"Vendas"} items={itemsSales} />
                     </li>
                 </ul>
             </nav>}
+            {console.log(sidebar)}
         </>
     )
 }
