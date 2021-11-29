@@ -29,3 +29,7 @@
     padding-left: 16px;
     cursor:pointer;
 }
+
+.mainContainer {
+    width: 100%;
+}

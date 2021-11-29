@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
-import { AiOutlineClose } from 'react-icons/ai';
 import { FaChevronLeft } from 'react-icons/fa';
 import Panel from '../../assets/Icons/Panel';
 import Product from '../../assets/Icons/Product';
@@ -59,6 +58,7 @@ function SideBar({ name }) {
                     </li>
                     <li className={styles.navText}>
                         <SimpleAccordion
+
                             icon={<Product width={21} height={21} fill={'#fff'} />}
                             title={"Produtos"}
                             items={itemsProduct}
@@ -75,7 +75,7 @@ function SideBar({ name }) {
                     </li>
                 </ul>
             </nav> : <nav className={styles.navMenu}>
-                <ul className={styles.navMenuItems}>
+            <ul className={styles.navMenuItems}>
                     <li className={styles.navbarToogle}>
                         <div className={styles.menuBars}>
                             <FaChevronLeft onClick={showSidebar} />
@@ -96,6 +96,7 @@ function SideBar({ name }) {
                     </li>
                     <li className={styles.navText}>
                         <SimpleAccordion
+
                             icon={<Product width={21} height={21} fill={'#fff'} />}
                             title={"Produtos"}
                             items={itemsProduct}

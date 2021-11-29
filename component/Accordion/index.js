@@ -4,14 +4,13 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Product from '../../assets/Icons/Product';
 import styles from '../../styles/Accordion.module.css';
 import Link from 'next/link';
 
 export default function SimpleAccordion({ icon, title, items, showsidebar }) {
   return (
 
-    <div>
+    <div className={styles.mainContainer}>
       <Accordion className={styles.MuiAccordionRoot}>
         <AccordionSummary
           className={styles.MuiAccordionSummaryExpandIconWrapper}
