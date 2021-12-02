@@ -25,7 +25,7 @@ function SideBar({ name }) {
     const itemsSales = [
         {
             title: 'Visão Geral',
-            path: '/'
+            path: '/Login'
         },
     ]
 
