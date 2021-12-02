@@ -1,0 +1,35 @@
+.spanText {
+    margin-left: 10px;
+}
+
+.MuiAccordionRoot {
+    background: transparent;
+    color: #fff;
+    opacity: 0.5;
+    border: none;
+    transition: 350ms;
+    width: 100%;
+}
+ 
+.MuiAccordionRoot:hover {
+    transition: 350ms;
+    opacity: 1;
+} 
+
+.MuiAccordionSummaryExpandIconWrapper svg {
+    color: #fff
+}
+
+.MuiTypographyRoot {
+    display: flex;
+    align-items: center;
+}
+
+.list {
+    padding-left: 16px;
+    cursor:pointer;
+}
+
+.mainContainer {
+    width: 100%;
+}

@@ -1,16 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'grapesjs/dist/css/grapes.min.css'
 import 'grapesjs-preset-webpage'
 import 'grapesjs-preset-newsletter'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import grapesjs from 'grapesjs'
+import pt from 'grapesjs/locale/pt'
+
+import Head from 'next/head'
+import styles from '../styles/Home.module.css'
+import { DefaultHtml, DefaultCss } from '../component/LayoutGrapesjs/Page/Default'
+import SideBar from '../component/SideBar';
+import { BrorwserRouter as Router, Switch, Route } from 'react-router';
+import Link from 'next/link'
 import SelectPage from './SelectPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-
-export default function index() {
+export default function Panel() {
+  // layout
+  useEffect(() => {
+    grapesjs.init({
+      container: '#gjs',
+      i18n: {
+        messages: { pt }
+      },
+      components: DefaultHtml,
+      style: DefaultCss,
+      fromElement: true,
+      plugins: ['gjs-preset-webpage'],
+      pluginsOpts: {
+        'gjs-preset-webpage': {
+          // options
+        }
+      },
+      storageManager: {
+        id: 'gjs-',             // Prefix identifier that will be used on parameters
+        type: 'local',          // Type of the storage
+        autosave: true,         // Store data automatically
+        autoload: true,         // Autoload stored data on init
+        stepsBeforeSave: 1,     // If autosave enabled, indicates how many changes are necessary before store method is triggered
+      },
+    })
+  })
   return (
-    <div >
+    <>
+      <Head>
+        <title>Painel</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <SelectPage />
-    </div>
+      <SideBar name="Nicolas Estanislau"/>
+      <p>painel</p>
+    </>
   )
 }
