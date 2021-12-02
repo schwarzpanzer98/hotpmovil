@@ -1,0 +1,74 @@
+.tabela{
+    text-align: center;
+    margin: 20px;
+}
+
+
+.procura {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+    margin-bottom: 15px;
+}
+
+.divBotoes{
+    display: flex;
+    margin-top: 30px;
+    margin-right: 10%;
+}
+
+.titulo {
+    display:flex;
+    margin-left: 200px;
+    margin-top: 30px;
+}
+
+.box {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #ced4da;
+}
+
+.opcoes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectBoxes {
+    display: flex;
+    margin-bottom: 15px;
+    
+}
+
+.tipografiaBoxes {
+    margin-top: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.table {
+    background-color: black;
+    margin-top: 40px;
+    border-collapse: separate !important;
+  }
+
+  .tbody::before
+{
+  content: '';
+  display: block;
+  height: 15px;
+
+}
+
+
+
+
