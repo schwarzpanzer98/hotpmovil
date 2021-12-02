@@ -4,6 +4,7 @@ import styles from "../../styles/Login.module.css";
 import Input from "../../component/Input";
 import InputPassword from "../../component/InputPassword";
 import ButtonComponent from "../../component/ButtonComponent";
+import Head from "next/head";
 
 function initialState() {
   return { user: "", password: "" };
@@ -21,35 +22,42 @@ function Login({}) {
   }
 
   return (
-    <div className={styles.background}>
-      <div className={styles.container}>
-        <div className={styles.titleContainer}>
-          {/*  <img className={styles.image} src="http://www.pmovil.com/en/images/logo.jpg"/> */}
-          <AiFillFire color="#F04E23" />
-          <h1 className={styles.title}>HotPmovil</h1>
+    <>
+      <Head>
+        <title>Login</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <div className={styles.background}>
+        <div className={styles.container}>
+          <div className={styles.titleContainer}>
+            {/*  <img className={styles.image} src="http://www.pmovil.com/en/images/logo.jpg"/> */}
+            <AiFillFire color="#F04E23" />
+            <h1 className={styles.title}>HotPmovil</h1>
+          </div>
+          <Input
+            onChange={onChange}
+            name="user"
+            label="Seu usuário"
+            value={values.user}
+          />
+          <InputPassword
+            fill={"#fff"}
+            name="password"
+            onChange={onChange}
+            value={values.password}
+          />
+          <a className={styles.link} href="/Forgot">
+            Esqueci minha senha
+          </a>
+          <ButtonComponent
+            variantContent="contained"
+            colorContent="success"
+            content="Entrar"
+          />
         </div>
-        <Input
-          onChange={onChange}
-          name="user"
-          label="Seu usuário"
-          value={values.user}
-        />
-        <InputPassword
-          fill={"#fff"}
-          name="password"
-          onChange={onChange}
-          value={values.password}
-        />
-        <a className={styles.link} href="/Forgot">
-          Esqueci minha senha
-        </a>
-        <ButtonComponent
-          variantContent="contained"
-          colorContent="success"
-          content="Entrar"
-        />
       </div>
-    </div>
+    </>
   );
 }
 
