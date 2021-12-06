@@ -5,6 +5,7 @@ import Input from "../../component/Input";
 import InputPassword from "../../component/InputPassword";
 import ButtonComponent from "../../component/ButtonComponent";
 import Head from "next/head";
+import Link from "next/link";
 
 function initialState() {
   return { user: "", password: "" };
@@ -36,20 +37,22 @@ function Login({}) {
             <h1 className={styles.title}>HotPmovil</h1>
           </div>
           <Input
+            type={"email"}
             onChange={onChange}
             name="user"
             label="Seu usuário"
             value={values.user}
           />
           <InputPassword
+            label={"Sua senha"}
             fill={"#fff"}
             name="password"
             onChange={onChange}
             value={values.password}
           />
-          <a className={styles.link} href="/Forgot">
-            Esqueci minha senha
-          </a>
+          <Link href="/Forgot">
+            <a className={styles.link}>Esqueci minha senha</a>
+          </Link>
           <ButtonComponent
             variantContent="contained"
             colorContent="success"

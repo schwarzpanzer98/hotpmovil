@@ -5,7 +5,7 @@ function ButtonComponent({ variantContent, colorContent, content }) {
 
     return (
         
-        <Button variant={variantContent} color={colorContent}>{content}</Button>
+        <Button type="submit" variant={variantContent} color={colorContent}>{content}</Button>
     )
 }
 
