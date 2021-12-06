@@ -27,10 +27,14 @@ export default function Home() {
             },
             storageManager: {
                 id: 'gjs-',             // Prefix identifier that will be used on parameters
-                type: 'local',          // Type of the storage
+                type: 'remote',          // Type of the storage
                 autosave: true,         // Store data automatically
                 autoload: true,         // Autoload stored data on init
-                stepsBeforeSave: 1,     // If autosave enabled, indicates how many changes are necessary before store method is triggered
+                stepsBeforeSave: 1,
+                urlStore: 'http://endpoint/store-template/some-id-123',
+                urlLoad: 'http://endpoint/load-template/some-id-123',
+                params: { _some_token: '....' },
+                headers: { Authorization: 'Basic ...' },     // If autosave enabled, indicates how many changes are necessary before store method is triggered
             },
         })
     })

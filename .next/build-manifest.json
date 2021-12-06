@@ -20,10 +20,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
-    "/Product": [
+    "/GrapesJS": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/Product.js"
+      "static/chunks/pages/GrapesJS.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
