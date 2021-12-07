@@ -1,0 +1,18 @@
+.main {
+  padding: 0px 32px;
+  margin-top: 24px;
+}
+
+.container {
+    margin-right: 260px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  padding-top: 40px;
+}
+
+.text {
+  color: #707780;
+}

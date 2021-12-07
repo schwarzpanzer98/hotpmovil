@@ -37,7 +37,7 @@ function Login({}) {
           </div>
           <Input
             onChange={onChange}
-            name="user"
+            name="name"
             label="Seu usuário"
             value={values.user}
           />
