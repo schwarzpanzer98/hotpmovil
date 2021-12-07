@@ -10,8 +10,10 @@ import { DefaultHtml, DefaultCss } from '../../component/LayoutGrapesjs/Page/Def
 
 export default function Home() {
     // layout
+    const editor = ""
+
     useEffect(() => {
-        grapesjs.init({
+        editor = grapesjs.init({
             container: '#gjs',
             i18n: {
                 messages: { pt }
@@ -27,17 +29,31 @@ export default function Home() {
             },
             storageManager: {
                 id: 'gjs-',             // Prefix identifier that will be used on parameters
-                type: 'remote',          // Type of the storage
+                type: 'local',          // Type of the storage
                 autosave: true,         // Store data automatically
                 autoload: true,         // Autoload stored data on init
                 stepsBeforeSave: 1,
-                urlStore: 'http://endpoint/store-template/some-id-123',
-                urlLoad: 'http://endpoint/load-template/some-id-123',
-                params: { _some_token: '....' },
-                headers: { Authorization: 'Basic ...' },     // If autosave enabled, indicates how many changes are necessary before store method is triggered
+                // If autosave enabled, indicates how many changes are necessary before store method is triggered
+            },
+            assetManager: {
+
             },
         })
+        editor.Panels.addButton('options', [ { id: 'save', className: 'fa fa-floppy-o icon-blank', command: function(editor1, sender) {
+         console.log("Editor:");
+          console.log(editor1);
+          console.log("SENDER:");
+
+          console.log(sender);
+          
+          console.log("HTML:");
+           console.log(editor1.getHtml());
+           console.log(editor1.getCSS());
+
+          }, attributes: { title: 'Save Template' } }, ]);
     })
+
+    
     return (
         <div className={styles.container}>
             <Head>
