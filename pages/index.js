@@ -14,6 +14,7 @@ import SideBar from "../component/SideBar";
 import { BrorwserRouter as Router, Switch, Route } from "react-router";
 import Link from "next/link";
 import StoreProvider from "../component/Store/Provider";
+import SelectPage from './SelectPage'
 
 export default function Panel() {
   // layout
@@ -48,8 +49,6 @@ export default function Panel() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SelectPage />
-      <SideBar name="Nicolas Estanislau"/>
-      <p>painel</p>
         <SideBar name="Nicolas Estanislau" />
         <p>painel</p>
     </>
