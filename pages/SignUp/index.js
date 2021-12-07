@@ -5,24 +5,29 @@ import styles from "../../styles/SignUp.module.css";
 import ButtonComponent from "../../component/ButtonComponent";
 import Input from "../../component/Input";
 import InputPassword from "../../component/InputPassword";
-import SideBar from "../../component/SideBar";
-import CardProduct from "../../component/CardProduct";
 import SelectComponent from "../../component/SelectComponent";
 import Link from "next/link";
 
-function initialState() {
-  return { user: "", password: "" };
-}
-
 export default function SignUp() {
-  const [values, setValues] = useState(initialState);
+  const [email, setEmail] = useState("");
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
-  function onChange(event) {
-    const { value, name } = event.target;
-    setValues({
-      ...values,
-      [name]: value,
-    });
+  function onChangeEmail(event) {
+    setEmail(event.target);
+  }
+
+  function onChangeUser(event) {
+    setUser(event.target);
+  }
+
+  function onChangePassword(event) {
+    setPassword(event.target);
+  }
+
+  function onChangePasswordConfirmation(event) {
+    setPasswordConfirmation(event.target);
   }
   return (
     <>
@@ -34,7 +39,7 @@ export default function SignUp() {
         <form action="">
           <div className={styles.container}>
             <div className={styles.titleContainer}>
-              {/*  <img className={styles.image} src="http://www.pmovil.com/en/images/logo.jpg"/> */}
+              {/* <img className={styles.image} src="http://www.pmovil.com/en/images/logo.jpg"/> */}
               <AiFillFire color="#F04E23" />
               <h1 className={styles.title}>HotPmovil</h1>
             </div>
@@ -42,35 +47,32 @@ export default function SignUp() {
             <input type={"hidden"} name="status" value={true} />
             <Input
               type={"email"}
-              onChange={onChange}
-              name="user"
+              onChange={onChangeEmail}
+              name={"email"}
               label="Seu email"
-              value={values.user}
+              value={email}
               required
-              
             />
             <Input
               type={"text"}
-              onChange={onChange}
+              onChange={onChangeUser}
               name="user"
               label="Seu nome"
-              value={values.user}
+              value={user}
               required
             />
             <InputPassword
               label={"Sua senha"}
-              fill={"#fff"}
               name="password"
-              onChange={onChange}
-              value={values.password}
+              onChange={onChangePassword}
+              value={password}
               required
             />
             <InputPassword
               label={"Confirme sua senha"}
-              fill={"#fff"}
               name="password"
-              onChange={onChange}
-              value={values.password}
+              onChange={onChangePasswordConfirmation}
+              value={passwordConfirmation}
               required
             />
             <SelectComponent />
@@ -78,7 +80,7 @@ export default function SignUp() {
               <a className={styles.link}>já tenho login</a>
             </Link>
             <ButtonComponent
-              type="submit"
+              type={"submit"}
               variantContent="contained"
               colorContent="success"
               content="Criar"
