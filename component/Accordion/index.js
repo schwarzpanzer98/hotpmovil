@@ -25,8 +25,8 @@ export default function SimpleAccordion({ icon, title, items, showsidebar }) {
 
           {items.map((item, index) => {
             return (
-              <ul className={styles.list}>
-                <li onClick={showsidebar} key={index}>
+              <ul className={styles.list} key={index}>
+                <li onClick={showsidebar} >
                   <Typography>
                     <Link href={item.path} >
                       {item.title}

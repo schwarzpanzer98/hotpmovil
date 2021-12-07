@@ -1,46 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import 'grapesjs/dist/css/grapes.min.css'
-import 'grapesjs-preset-webpage'
-import 'grapesjs-preset-newsletter'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import grapesjs from 'grapesjs'
-import pt from 'grapesjs/locale/pt'
-
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { DefaultHtml, DefaultCss } from '../component/LayoutGrapesjs/Page/Default'
-import SideBar from '../component/SideBar';
-import { BrorwserRouter as Router, Switch, Route } from 'react-router';
-import Link from 'next/link'
-import SelectPage from './SelectPage';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Fragment, useEffect } from "react";
+import grapesjs from "grapesjs";
+import pt from "grapesjs/locale/pt";
+import "grapesjs/dist/css/grapes.min.css";
+import "grapesjs-preset-webpage";
+import "grapesjs-preset-newsletter";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import {
+  DefaultHtml,
+  DefaultCss,
+} from "../component/LayoutGrapesjs/Page/Default";
+import SideBar from "../component/SideBar";
+import { BrorwserRouter as Router, Switch, Route } from "react-router";
+import Link from "next/link";
+import StoreProvider from "../component/Store/Provider";
 
 export default function Panel() {
   // layout
   useEffect(() => {
     grapesjs.init({
-      container: '#gjs',
+      container: "#gjs",
       i18n: {
-        messages: { pt }
+        messages: { pt },
       },
       components: DefaultHtml,
       style: DefaultCss,
       fromElement: true,
-      plugins: ['gjs-preset-webpage'],
+      plugins: ["gjs-preset-webpage"],
       pluginsOpts: {
-        'gjs-preset-webpage': {
+        "gjs-preset-webpage": {
           // options
-        }
+        },
       },
       storageManager: {
-        id: 'gjs-',             // Prefix identifier that will be used on parameters
-        type: 'local',          // Type of the storage
-        autosave: true,         // Store data automatically
-        autoload: true,         // Autoload stored data on init
-        stepsBeforeSave: 1,     // If autosave enabled, indicates how many changes are necessary before store method is triggered
+        id: "gjs-", // Prefix identifier that will be used on parameters
+        type: "local", // Type of the storage
+        autosave: true, // Store data automatically
+        autoload: true, // Autoload stored data on init
+        stepsBeforeSave: 1, // If autosave enabled, indicates how many changes are necessary before store method is triggered
       },
-    })
-  })
+    });
+  });
   return (
     <>
       <Head>
@@ -50,6 +50,8 @@ export default function Panel() {
       <SelectPage />
       <SideBar name="Nicolas Estanislau"/>
       <p>painel</p>
+        <SideBar name="Nicolas Estanislau" />
+        <p>painel</p>
     </>
-  )
+  );
 }

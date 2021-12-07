@@ -6,7 +6,7 @@ import Product from '../../assets/Icons/Product';
 import Sales from '../../assets/Icons/Sales';
 import Link from 'next/link';
 import styles from '../../styles/SideBar.module.css';
-import SimpleAccordion from '../Accordion'
+import SimpleAccordion from '../Accordion';
 
 function SideBar({ name }) {
     const [sidebar, setSidebar] = useState(false);
@@ -19,6 +19,10 @@ function SideBar({ name }) {
         {
             title: 'Cadastrar Produto',
             path: '/Product',
+        },
+        {
+            title: 'Sou Produtor(a)',
+            path: '/',
         },
     ]
 

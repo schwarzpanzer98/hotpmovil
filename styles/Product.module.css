@@ -1,0 +1,25 @@
+.cardContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 17px 13px;
+}
+
+@media screen and (max-width: 978px) {
+    .cardContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 754px) {
+    .cardContainer {
+        grid-template-columns: 1fr;
+    }
+}
+
+.title {
+    font-weight: 400;
+}
+
+.container {
+    padding: 0px 16px;
+}
