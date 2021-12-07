@@ -39,7 +39,7 @@ function Login({}) {
           <Input
             type={"email"}
             onChange={onChange}
-            name="user"
+            name="name"
             label="Seu usuário"
             value={values.user}
           />
