@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: ease-in all 0.3s;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 8px;
+    border:1px solid #e6e9ed;
+}
+
+.container:hover {
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    transition: ease-in all 0.3s;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 4px;
+    margin-top: 0px;
+}
+
+.text {
+    color: #707780;
+    font-size: 16px;
+    text-align: center;
+}
