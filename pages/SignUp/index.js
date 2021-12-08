@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
-  const [user, setUser] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
@@ -19,7 +19,7 @@ export default function SignUp() {
   }
 
   function onChangeUser(event) {
-    setUser(event.target);
+    setName(event.target);
   }
 
   function onChangePassword(event) {
@@ -56,9 +56,9 @@ export default function SignUp() {
             <Input
               type={"text"}
               onChange={onChangeUser}
-              name="user"
+              name="name"
               label="Seu nome"
-              value={user}
+              value={name}
               required
             />
             <InputPassword
