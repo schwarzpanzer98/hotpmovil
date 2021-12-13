@@ -28,7 +28,7 @@
 
 .navMenu {
     background-color: #053d4e;
-    width: 163px;
+    width: 196px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -39,8 +39,9 @@
 }
 
 .active {
+    z-index: 1;
     background-color: #053d4e;
-    width: 163px;
+    width: 196px;
     height: 100vh;
     display: flex;
     justify-content: center;
