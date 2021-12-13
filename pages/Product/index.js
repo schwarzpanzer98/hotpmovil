@@ -21,11 +21,6 @@ export default function Product() {
             <Link href="/InfoCourse">
               <div>
                 <CardProduct
-                  onClick={() => {
-                    {
-                      console.log("cheguei aqui");
-                    }
-                  }}
                   image="https://vulcano.hotmart.com/app-product/52a76191d485c8033a2b.svg"
                   altContent="Curso Online"
                   title="Curso Online"

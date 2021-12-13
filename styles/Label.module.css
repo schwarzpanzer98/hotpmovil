@@ -1,0 +1,23 @@
+.onLabel {
+  background: #f0f4ff;
+  border: 1px solid #355cc0;
+  color: #355cc0;
+  width: fit-content;
+  padding: 8px 16px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.offLabel {
+  background: #f7f9fa;
+  border: 1px solid #32363b;
+  color: #32363b;
+  width: fit-content;
+  padding: 8px 16px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border-radius: 3rem;
+  cursor: pointer;
+}

@@ -117,7 +117,6 @@ function SideBar({ name }) {
                     </li>
                 </ul>
             </nav>}
-            {console.log(sidebar)}
         </>
     )
 }

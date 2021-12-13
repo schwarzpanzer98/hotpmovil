@@ -12,7 +12,7 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-function SelectComponent({}) {
+function SelectComponent({ label, id, text }) {
   const [age, setAge] = React.useState("");
 
   const handleChange = (event) => {
@@ -20,17 +20,17 @@ function SelectComponent({}) {
   };
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: '100%' }}>
-        <InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+      <FormControl sx={{ m: 1, minWidth: "100%" }}>
+        <InputLabel id={id}>{label}</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
           value={age}
-          label="Age"
+          label={label}
           onChange={handleChange}
         >
           <MenuItem value="">
-            <em>None</em>
+            <em>{text}</em>
           </MenuItem>
           <MenuItem value={10}>Ten</MenuItem>
           <MenuItem value={20}>Twenty</MenuItem>
