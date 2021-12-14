@@ -30,6 +30,10 @@
     cursor:pointer;
 }
 
+.list li {
+    margin-bottom: 8px;
+}
+
 .mainContainer {
     width: 100%;
 }
