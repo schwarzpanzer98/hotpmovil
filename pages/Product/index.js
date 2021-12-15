@@ -16,7 +16,6 @@ export default function Product() {
       <main className={styles.container}>
         <div>
           <h1 className={styles.title}>O que você vai vender?</h1>
-
           <div className={styles.cardContainer}>
             <Link href="/InfoCourse">
               <div>

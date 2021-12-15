@@ -1,0 +1,22 @@
+.list > li.active {
+    color: #191c1f;
+    font-weight: 400;
+    font-family: Helvetica,Arial,sans-serif;
+    border: 1px solid #c9ced4;
+    padding: 0.75rem 1.5rem;
+    background-color: rgba(89,129,227,.15);
+    box-shadow: inset 4px 0 0 0 #5981e3;
+}
+
+.list > li {
+    color: #191c1f;
+    font-weight: 400;
+    font-family: Helvetica,Arial,sans-serif;
+    border: 1px solid #c9ced4;
+    padding: 0.75rem 1.5rem;
+    background-color: #ffff;
+}
+
+.itens {
+
+}
