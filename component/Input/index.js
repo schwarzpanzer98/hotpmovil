@@ -7,7 +7,7 @@ function Input({ id, label, type, required, name, }) {
 
     return (
         <>
-            <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
+            <FormControl sx={{ mt: 1, mb: 1, width: '100%' }} variant="outlined">
                 <TextField id={id} label={label} type={type} variant="outlined" required={required} name={name}  />
             </FormControl>
         </>

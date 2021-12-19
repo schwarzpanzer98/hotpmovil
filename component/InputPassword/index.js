@@ -34,7 +34,7 @@ function InputPassword({ label }) {
 
   return (
     <>
-      <FormControl sx={{ m: 1, width: "100%" }} variant="outlined">
+      <FormControl sx={{ mt: 1, mb: 1, width: "100%" }} variant="outlined">
         <InputLabel htmlFor="outlined-adornment-password">{label}</InputLabel>
         <OutlinedInput
           required
