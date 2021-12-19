@@ -1,0 +1,94 @@
+.main {
+    padding: 0px 32px;
+    margin-top: 24px;
+  }
+  
+  @media only screen and (max-width: 422px) {
+    .main {
+        padding: 0px 8px;
+      }
+    }
+  
+  .selectContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between
+  }
+  
+  @media only screen and (max-width: 990px) {
+  .selectContainer {
+      flex-direction: column;
+    }
+  }
+  
+  .selectContainer > div {
+    margin-right: 24px;
+  }
+  
+  .selectContent {
+    width: 100%;
+  }
+  
+  .container {
+    /*  margin-right: 260px; */
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+  
+  @media only screen and (max-width: 756px) {
+    .container {
+      width: 100%;
+    }
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    padding-top: 40px;
+  }
+  
+  .subTitle {
+    color: #707780;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  
+  .text {
+    color: #707780;
+  }
+  
+  .label {
+    margin: 0;
+    margin-left: 10px;
+    margin-top: 16px;
+  }
+  
+  .helpText {
+    margin: 0px;
+    margin-top: -3px;
+    margin-left: 20px;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+  }
+  
+  .labelContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 46px;
+    margin-top: 80px;
+    
+  }
+  
+  .buttonContainer:last-child {
+    margin-right: 10px;
+  }
+  

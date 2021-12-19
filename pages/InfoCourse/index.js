@@ -53,12 +53,12 @@ export default function InfoCourse() {
           <div className={styles.selectContainer}>
             <div className={styles.selectContent}>
               <p className={styles.label}>Idioma do produto</p>
-              <SelectComponent text="Em que língua será seu produto?" />
+              <SelectComponent label="Em que língua será seu produto?" text="Em que língua será seu produto?" />
               <p className={styles.helpText}>Exibido no momento da compra.</p>
             </div>
             <div className={styles.selectContent}>
               <p className={styles.label}>Mercado de atuação principal</p>
-              <SelectComponent text="Em que país você deseja vender?" />
+              <SelectComponent label="Em que país você deseja vender?" text="Em que país você deseja vender?" />
               <p className={styles.helpText}>
                 Você também poderá vender para outros países.
               </p>

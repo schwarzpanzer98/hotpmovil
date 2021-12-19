@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/InfoCourse": [
+    "/Pricing": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/InfoCourse.js"
+      "static/chunks/pages/Pricing.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

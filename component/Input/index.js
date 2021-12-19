@@ -6,6 +6,7 @@ function Input({ id, label, type, required, name, placeholder, helperText }) {
   return (
     <FormControl sx={{ m: 1, width: "100%" }} variant="outlined">
       <TextField
+        error={false}
         id={id}
         placeholder={placeholder}
         helperText={helperText}
