@@ -17,6 +17,7 @@ import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import SelectComponent from "../../component/SelectComponent";
 import Label from "../../component/Label";
 import ButtonComponent from "../../component/ButtonComponent";
+import Toggle from "../../component/Toggle";
 
 export default function Pricing() {
   return (
@@ -66,6 +67,7 @@ export default function Pricing() {
               placeholder="0,00"
             />
           </div>
+          <Toggle />
 
           <div className={styles.buttonContainer}>
             <ButtonComponent variantContent="outlined" content="Cancelar" />
