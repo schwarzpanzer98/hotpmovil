@@ -20,7 +20,7 @@ function SelectComponent({ label, id, text }) {
   };
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: "100%" }}>
+      <FormControl sx={{ mt: 1, mb: 1, minWidth: "100%" }}>
         <InputLabel id={id}>{label}</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"

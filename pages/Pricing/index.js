@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useState } from "react";
 import grapesjs from "grapesjs";
 import pt from "grapesjs/locale/pt";
 import "grapesjs/dist/css/grapes.min.css";
@@ -18,12 +18,63 @@ import SelectComponent from "../../component/SelectComponent";
 import Label from "../../component/Label";
 import ButtonComponent from "../../component/ButtonComponent";
 import Toggle from "../../component/Toggle";
+/* Moeda */
+import CoinList from "../../component/CoinList";
+import countries from "../../component/CoinList/content";
+/* Garantia */
+import GuaranteeList from "../../component/GuaranteeList";
+import guarantees from "../../component/GuaranteeList/content";
 
 export default function Pricing() {
+  const [coin, setCoin] = useState("");
+
+  const handleChange = (event) => {
+    setCoin(event.target.value);
+  };
+  if (!coin) {
+    console.log("sem valor ");
+  } else {
+    console.log("com valor " + coin);
+  }
+
+  const FilterAction = () => {
+    console.log("case " + coin);
+    switch (coin) {
+      case "BR":
+        return (
+          <div className={styles.hotInputGroup}>
+            <div className={styles.prepend}>
+              <span>R$</span>
+            </div>
+            <Input name="" placeholder="0,00" />
+          </div>
+        );
+
+      case "EUR":
+        return (
+          <div className={styles.hotInputGroup}>
+            <Input name="" placeholder="0,00" />
+            <div className={styles.prependEUR}>
+              <span>€</span>
+            </div>
+          </div>
+        );
+
+      default:
+        return (
+          <div className={styles.hotInputGroup}>
+            <div className={styles.prepend}>
+              <span>$</span>
+            </div>
+            <Input name="" placeholder="0,00" />
+          </div>
+        );
+    }
+  };
   return (
     <>
       <Head>
-        <title>Info</title>
+        <title>Price</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SideBar name="Nicolas Estanislau" />
@@ -36,7 +87,12 @@ export default function Pricing() {
           </p>
           <div className={styles.selectContent}>
             <p className={styles.label}>Moeda</p>
-            <SelectComponent text="Em que país você deseja vender?" />
+            <CoinList
+              handleChange={handleChange}
+              value={coin}
+              contents={countries}
+            />
+
             <p className={styles.helpText}>
               Caso venda para outros países, usamos esta moeda como base para
               conversão.
@@ -44,7 +100,7 @@ export default function Pricing() {
           </div>
           <div className={styles.selectContent}>
             <p className={styles.label}>Garantia do Produto</p>
-            <SelectComponent text="Em que país você deseja vender?" />
+            <GuaranteeList contents={guarantees} />
             <p className={styles.helpText}>
               É o prazo que o comprador tem para pedir reembolso do seu produto.
               No Brasil, o mínimo é de 7 dias e na União Europeia, 15 dias.
@@ -59,15 +115,7 @@ export default function Pricing() {
             </p>
           </div>
           <p className={styles.label}>Valor</p>
-          <div>
-            <span>R$</span>
-            
-            <Input
-              name=""
-              placeholder="0,00"
-            />
-          </div>
-          <Toggle />
+          <FilterAction type={coin} />
 
           <div className={styles.buttonContainer}>
             <ButtonComponent variantContent="outlined" content="Cancelar" />
