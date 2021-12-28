@@ -4,12 +4,12 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 
-const GuaranteeList = ({ label, id, text, contents }) => {
+const FormOfPayment = ({ label, id, text, contents }) => {
 
-  const [guarantee, setGuarantee] = useState("");
+  const [paymentData, setPaymentData] = useState("");
 
   const handleChange = (event) => {
-    setGuarantee(event.target.value);
+    setPaymentData(event.target.value);
   };
 
   return (
@@ -19,7 +19,7 @@ const GuaranteeList = ({ label, id, text, contents }) => {
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
-          value={guarantee}
+          value={paymentData}
           label={label}
           onChange={handleChange}
         >
@@ -35,4 +35,4 @@ const GuaranteeList = ({ label, id, text, contents }) => {
   );
 };
 
-export default GuaranteeList;
+export default FormOfPayment;

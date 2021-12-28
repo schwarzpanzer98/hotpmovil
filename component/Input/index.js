@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 
-function Input({ id, label, type, required, name, placeholder, helperText }) {
+function Input({ onChange, value, id, label, type, required, name, placeholder, helperText }) {
   return (
     <FormControl sx={{ mt: 1, mb: 1, width: "100%" }} variant="outlined">
       <TextField
@@ -15,6 +15,8 @@ function Input({ id, label, type, required, name, placeholder, helperText }) {
         variant="outlined"
         required={required}
         name={name}
+        value={value}
+        onChange={onChange}
       />
     </FormControl>
   );

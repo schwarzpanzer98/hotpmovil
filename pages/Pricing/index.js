@@ -1,76 +1,71 @@
-import React, { useState } from "react";
-import grapesjs from "grapesjs";
-import pt from "grapesjs/locale/pt";
-import "grapesjs/dist/css/grapes.min.css";
-import "grapesjs-preset-webpage";
-import "grapesjs-preset-newsletter";
+import React, { useState, useCallback } from "react";
 import Head from "next/head";
 import SideBar from "../../component/SideBar";
 import StepComponent from "../../component/StepComponent";
-import { BrorwserRouter as Router, Switch, Route } from "react-router";
-import Link from "next/link";
 import styles from "../../styles/Pricing.module.css";
 import Input from "../../component/Input";
-import TextField from "@material-ui/core/TextField";
-import FormControl from "@material-ui/core/FormControl";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import SelectComponent from "../../component/SelectComponent";
-import Label from "../../component/Label";
 import ButtonComponent from "../../component/ButtonComponent";
-import Toggle from "../../component/Toggle";
 /* Moeda */
 import CoinList from "../../component/CoinList";
 import countries from "../../component/CoinList/content";
 /* Garantia */
 import GuaranteeList from "../../component/GuaranteeList";
 import guarantees from "../../component/GuaranteeList/content";
+/* FormOfPayment */
+import FormOfPayment from "../../component/FormOfPayment";
+import formOfPayment from "../../component/FormOfPayment/content";
+
+const maskMoney = (value) => {
+  return value.replace(/\D/g, "");
+};
 
 export default function Pricing() {
   const [coin, setCoin] = useState("");
+  const [coinInput, setCoinInput] = useState("");
 
   const handleChange = (event) => {
     setCoin(event.target.value);
   };
-  if (!coin) {
-    console.log("sem valor ");
-  } else {
-    console.log("com valor " + coin);
-  }
 
-  const FilterAction = () => {
-    console.log("case " + coin);
-    switch (coin) {
-      case "BR":
-        return (
-          <div className={styles.hotInputGroup}>
-            <div className={styles.prepend}>
-              <span>R$</span>
-            </div>
-            <Input name="" placeholder="0,00" />
-          </div>
-        );
-
-      case "EUR":
-        return (
-          <div className={styles.hotInputGroup}>
-            <Input name="" placeholder="0,00" />
-            <div className={styles.prependEUR}>
-              <span>€</span>
-            </div>
-          </div>
-        );
-
-      default:
-        return (
-          <div className={styles.hotInputGroup}>
-            <div className={styles.prepend}>
-              <span>$</span>
-            </div>
-            <Input name="" placeholder="0,00" />
-          </div>
-        );
-    }
+  const handleChangecoinInput = (e) => {
+    setCoinInput(maskMoney(e.target.value));
   };
+
+  /* const FilterAction = () => {
+    if (coin === "BR") {
+      return (
+        <div className={styles.hotInputGroup}>
+          <div className={styles.prepend}>
+            <span>R$</span>
+          </div>
+          <input
+            onChange={handleChangecoinInput}
+            placeholder="0,00"
+            value={coinInput}
+          />
+          {/* <NewInput
+              placeholder="0,00"
+              name="valor"
+              onChange={handleChangecoinInput}
+            />
+          <button onClick={() => console.log(coinInput)}>Salvar</button>
+        </div>
+      );
+    } else if (coin === "EUR") {
+      return (
+        <div className={styles.hotInputGroup}>
+          <Input name="EUR" placeholder="0,00" />
+
+          <div className={styles.prependEUR}>
+            <span>€</span>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }; */
   return (
     <>
       <Head>
@@ -108,14 +103,23 @@ export default function Pricing() {
           </div>
           <div className={styles.selectContent}>
             <p className={styles.label}>Forma de pagamento</p>
-            <SelectComponent text="Em que país você deseja vender?" />
+            <FormOfPayment contents={formOfPayment} />
             <p className={styles.helpText}>
               Uma vez que este preço for criado, não será mais possivel alterar
               esta opção.
             </p>
           </div>
           <p className={styles.label}>Valor</p>
-          <FilterAction type={coin} />
+          <div
+            className={styles.hotInputGroup}
+            style={coin === "BR" ? {} : { display: "none" }}
+          >
+            <div className={styles.prepend}>
+              <span>R$</span>
+            </div>
+            <Input onChange={handleChangecoinInput} value={coinInput} />
+            {/* <button onClick={() => {console.log(coinInput)}}>salvar</button> */}
+          </div>
 
           <div className={styles.buttonContainer}>
             <ButtonComponent variantContent="outlined" content="Cancelar" />

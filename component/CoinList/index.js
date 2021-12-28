@@ -26,7 +26,7 @@ const CoinList = ({ label, id, text, contents, value, handleChange }) => {
             <em>{text}</em>
           </MenuItem>
           {contents.map((c) => (
-            <MenuItem value={c.value}>{c.title}</MenuItem>
+            <MenuItem key={c.value} value={c.value}>{c.title}</MenuItem>
           ))}
         </Select>
       </FormControl>

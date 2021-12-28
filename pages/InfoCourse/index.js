@@ -98,7 +98,7 @@ export default function InfoCourse() {
           </div>
           <div className={styles.buttonContainer}>
             <ButtonComponent variantContent="outlined" content="Cancelar" />
-            <ButtonComponent variantContent="contained" content="Continuar" />
+            <ButtonComponent disabled variantContent="contained" content="Continuar" />
           </div>
         </div>
       </div>
