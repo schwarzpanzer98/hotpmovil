@@ -25,7 +25,10 @@ export default function Pricing() {
   const [coinInput, setCoinInput] = useState("");
 
   const handleChange = (event) => {
+    console.log("coin: " + coin)
     setCoin(event.target.value);
+    console.log("coin setado: " + coin)
+    console.log("coin setado: " + typeof(coin))
   };
 
   const handleChangecoinInput = (e) => {
@@ -93,37 +96,74 @@ export default function Pricing() {
               conversão.
             </p>
           </div>
-          <div className={styles.selectContent}>
-            <p className={styles.label}>Garantia do Produto</p>
-            <GuaranteeList contents={guarantees} />
-            <p className={styles.helpText}>
-              É o prazo que o comprador tem para pedir reembolso do seu produto.
-              No Brasil, o mínimo é de 7 dias e na União Europeia, 15 dias.
-            </p>
-          </div>
-          <div className={styles.selectContent}>
-            <p className={styles.label}>Forma de pagamento</p>
-            <FormOfPayment contents={formOfPayment} />
-            <p className={styles.helpText}>
-              Uma vez que este preço for criado, não será mais possivel alterar
-              esta opção.
-            </p>
-          </div>
-          <p className={styles.label}>Valor</p>
-          <div
-            className={styles.hotInputGroup}
-            style={coin === "BR" ? {} : { display: "none" }}
-          >
-            <div className={styles.prepend}>
-              <span>R$</span>
+          <div style={coin ? {} : { display: "none" }}>
+            <div className={styles.selectContent}>
+              <p className={styles.label}>Garantia do Produto</p>
+              <GuaranteeList contents={guarantees} />
+              <p className={styles.helpText}>
+                É o prazo que o comprador tem para pedir reembolso do seu
+                produto. No Brasil, o mínimo é de 7 dias e na União Europeia, 15
+                dias.
+              </p>
             </div>
-            <Input onChange={handleChangecoinInput} value={coinInput} />
-            {/* <button onClick={() => {console.log(coinInput)}}>salvar</button> */}
-          </div>
+            <div className={styles.selectContent}>
+              <p className={styles.label}>Forma de pagamento</p>
+              <FormOfPayment contents={formOfPayment} />
+              <p className={styles.helpText}>
+                Uma vez que este preço for criado, não será mais possivel
+                alterar esta opção.
+              </p>
+            </div>
+            <p className={styles.label}>Valor</p>
+            <div
+              className={styles.hotInputGroup}
+              style={coin != "BR" && coin != "EUR" ? {} : { display: "none" }}
+            >
+              <div className={styles.prepend}>
+                <span>$</span>
+              </div>
+              <Input
+                onChange={handleChangecoinInput}
+                value={coinInput}
+                placeholder="0,00"
+              />
+              {/* <button onClick={() => {console.log(coinInput)}}>salvar</button> */}
+            </div>
+            <div
+              className={styles.hotInputGroup}
+              style={coin === "BR" ? {} : { display: "none" }}
+            >
+              <div className={styles.prepend}>
+                <span>R$</span>
+              </div>
+              <Input
+                onChange={handleChangecoinInput}
+                value={coinInput}
+                placeholder="0,00"
+              />
+              {/* <button onClick={() => {console.log(coinInput)}}>salvar</button> */}
+            </div>
+            <div
+              className={styles.hotInputGroup}
+              style={coin === "EUR" ? {} : { display: "none" }}
+            >
+              <Input
+                name="EUR"
+                onChange={handleChangecoinInput}
+                value={coinInput}
+                placeholder="0,00"
+              />
 
-          <div className={styles.buttonContainer}>
-            <ButtonComponent variantContent="outlined" content="Cancelar" />
-            <ButtonComponent variantContent="contained" content="Continuar" />
+              <div className={styles.prependEUR}>
+                <span>€</span>
+              </div>
+              {/* <button onClick={() => {console.log(coinInput)}}>salvar</button> */}
+            </div>
+
+            <div className={styles.buttonContainer}>
+              <ButtonComponent variantContent="outlined" content="Cancelar" />
+              <ButtonComponent variantContent="contained" content="Continuar" />
+            </div>
           </div>
         </div>
       </div>
