@@ -1,74 +1,60 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import SideBar from "../../component/SideBar";
 import StepComponent from "../../component/StepComponent";
 import styles from "../../styles/Pricing.module.css";
 import Input from "../../component/Input";
-import SelectComponent from "../../component/SelectComponent";
 import ButtonComponent from "../../component/ButtonComponent";
+import SelectComponent from "../../component/SelectComponent";
 /* Moeda */
-import CoinList from "../../component/CoinList";
-import countries from "../../component/CoinList/content";
+import countries from "../../utils/contentCountries";
 /* Garantia */
-import GuaranteeList from "../../component/GuaranteeList";
-import guarantees from "../../component/GuaranteeList/content";
+import guarantees from "../../utils/contentGuarantees";
 /* FormOfPayment */
-import FormOfPayment from "../../component/FormOfPayment";
-import formOfPayment from "../../component/FormOfPayment/content";
+import formOfPayment from "../../utils/contentFormOfPayment";
+/* Parcelas */
+import installmentsContent from "../../utils/installmentsContent";
 
 const maskMoney = (value) => {
-  return value.replace(/\D/g, "");
+  /* return value.replace(/\D/g, ""); */
+  value = value.toString().replace(/\D/g, "");
+  value = (value * 1).toFixed(2) + "";
+  return value
+    .replace(/\D/g, "")
+    .replace(".", ",")
+    .replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,")
+    .replace(/(\d)(\d{3}),/g, "$1.$2,");
+};
+
+const currentMoney = (value) => {
+  let f2 = value.toLocaleString("pt-br", { minimumFractionDigits: 2 });
+  console.log(f2);
+
+  return f2;
 };
 
 export default function Pricing() {
   const [coin, setCoin] = useState("");
+  const [formValue, setFormValue] = useState("");
   const [coinInput, setCoinInput] = useState("");
+  const [installmentsValue, setInstallmentsValue] = useState("");
 
   const handleChange = (event) => {
-    console.log("coin: " + coin)
     setCoin(event.target.value);
-    console.log("coin setado: " + coin)
-    console.log("coin setado: " + typeof(coin))
+  };
+
+  const handleChangeForm = (event) => {
+    setFormValue(event.target.value);
   };
 
   const handleChangecoinInput = (e) => {
-    setCoinInput(maskMoney(e.target.value));
+    setCoinInput(currentMoney(e.target.value));
   };
 
-  /* const FilterAction = () => {
-    if (coin === "BR") {
-      return (
-        <div className={styles.hotInputGroup}>
-          <div className={styles.prepend}>
-            <span>R$</span>
-          </div>
-          <input
-            onChange={handleChangecoinInput}
-            placeholder="0,00"
-            value={coinInput}
-          />
-          {/* <NewInput
-              placeholder="0,00"
-              name="valor"
-              onChange={handleChangecoinInput}
-            />
-          <button onClick={() => console.log(coinInput)}>Salvar</button>
-        </div>
-      );
-    } else if (coin === "EUR") {
-      return (
-        <div className={styles.hotInputGroup}>
-          <Input name="EUR" placeholder="0,00" />
+  const handleInstallmentsValue = (e) => {
+    setInstallmentsValue(e.target.value);
+  };
 
-          <div className={styles.prependEUR}>
-            <span>€</span>
-          </div>
-        </div>
-      );
-    } else {
-      return null;
-    }
-  }; */
   return (
     <>
       <Head>
@@ -85,7 +71,7 @@ export default function Pricing() {
           </p>
           <div className={styles.selectContent}>
             <p className={styles.label}>Moeda</p>
-            <CoinList
+            <SelectComponent
               handleChange={handleChange}
               value={coin}
               contents={countries}
@@ -99,7 +85,7 @@ export default function Pricing() {
           <div style={coin ? {} : { display: "none" }}>
             <div className={styles.selectContent}>
               <p className={styles.label}>Garantia do Produto</p>
-              <GuaranteeList contents={guarantees} />
+              <SelectComponent contents={guarantees} />
               <p className={styles.helpText}>
                 É o prazo que o comprador tem para pedir reembolso do seu
                 produto. No Brasil, o mínimo é de 7 dias e na União Europeia, 15
@@ -108,7 +94,11 @@ export default function Pricing() {
             </div>
             <div className={styles.selectContent}>
               <p className={styles.label}>Forma de pagamento</p>
-              <FormOfPayment contents={formOfPayment} />
+              <SelectComponent
+                contents={formOfPayment}
+                value={formValue}
+                handleChange={handleChangeForm}
+              />
               <p className={styles.helpText}>
                 Uma vez que este preço for criado, não será mais possivel
                 alterar esta opção.
@@ -159,12 +149,57 @@ export default function Pricing() {
               </div>
               {/* <button onClick={() => {console.log(coinInput)}}>salvar</button> */}
             </div>
+          </div>
+        </div>
+        <div style={formValue === 3 ? {} : { display: "none" }}>
+          {/* {console.log(formOfPayment[2].value)} */}
+          <hr className={styles.widthStyle} />
 
-            <div className={styles.buttonContainer}>
-              <ButtonComponent variantContent="outlined" content="Cancelar" />
-              <ButtonComponent variantContent="contained" content="Continuar" />
+          <h1 className={styles.title2}>Plano de parcelamentos</h1>
+          <p className={styles.text}>
+            Insira o valor à vista, escolha o máximo de parcelas e clique em
+            Gerar.
+          </p>
+          <div className={styles.installments}>
+            <div>
+              <p className={styles.label}>Valor à vista</p>
+              <div className={styles.hotInputGroup}>
+                <div className={styles.prepend}>
+                  <span>R$</span>
+                </div>
+                <Input
+                  onChange={handleChangecoinInput}
+                  value={coinInput}
+                  placeholder="0,00"
+                />
+                {/* <button onClick={() => {console.log(coinInput)}}>salvar</button> */}
+              </div>
+            </div>
+            <div style={{ padding: "0px 10px" }}></div>
+            <div>
+              <p className={styles.label}>Máximo de parcelas</p>
+              <div className={styles.hotInputGroup}>
+                <div style={{ width: "114px" }}>
+                  <SelectComponent
+                    label="parcelas"
+                    contents={installmentsContent}
+                    value={installmentsValue}
+                    handleChange={handleInstallmentsValue}
+                  />
+                </div>
+
+                <div style={{ padding: "0px 10px" }}></div>
+                <ButtonComponent variantContent="contained" content="Gerar" />
+              </div>
             </div>
           </div>
+        </div>
+        <div className={styles.buttonContainer}>
+          <ButtonComponent variantContent="outlined" content="Voltar" />
+          <ButtonComponent
+            variantContent="contained"
+            content="Salvar e continuar"
+          />
         </div>
       </div>
     </>
