@@ -85,7 +85,7 @@ export default function Pricing() {
           <div style={coin ? {} : { display: "none" }}>
             <div className={styles.selectContent}>
               <p className={styles.label}>Garantia do Produto</p>
-              <SelectComponent contents={guarantees} />
+              {/* <SelectComponent contents={guarantees} /> */}
               <p className={styles.helpText}>
                 É o prazo que o comprador tem para pedir reembolso do seu
                 produto. No Brasil, o mínimo é de 7 dias e na União Europeia, 15
@@ -152,7 +152,6 @@ export default function Pricing() {
           </div>
         </div>
         <div style={formValue === 3 ? {} : { display: "none" }}>
-          {/* {console.log(formOfPayment[2].value)} */}
           <hr className={styles.widthStyle} />
 
           <h1 className={styles.title2}>Plano de parcelamentos</h1>
@@ -178,8 +177,10 @@ export default function Pricing() {
             <div style={{ padding: "0px 10px" }}></div>
             <div>
               <p className={styles.label}>Máximo de parcelas</p>
-              <div className={styles.hotInputGroup}>
-                <div style={{ width: "114px" }}>
+              <div
+                className={` ${styles.hotInputGroup}  ${styles.mobileAjust}`}
+              >
+                <div className={styles.parcel}>
                   <SelectComponent
                     label="parcelas"
                     contents={installmentsContent}
@@ -189,7 +190,16 @@ export default function Pricing() {
                 </div>
 
                 <div style={{ padding: "0px 10px" }}></div>
-                <ButtonComponent variantContent="contained" content="Gerar" />
+
+                {installmentsValue ? (
+                  <ButtonComponent variantContent="contained" content="Gerar" />
+                ) : (
+                  <ButtonComponent
+                    variantContent="contained"
+                    content="Gerar"
+                    disabled
+                  />
+                )}
               </div>
             </div>
           </div>

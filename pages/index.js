@@ -13,11 +13,11 @@ import {
 import SideBar from "../component/SideBar";
 import { BrorwserRouter as Router, Switch, Route } from "react-router";
 import Link from "next/link";
-import StoreProvider from "../component/Store/Provider";
+/* import StoreProvider from "../component/Store/Provider"; */
 
 export default function Panel() {
   // layout
-  useEffect(() => {
+  /* useEffect(() => {
     grapesjs.init({
       container: "#gjs",
       i18n: {
@@ -40,15 +40,15 @@ export default function Panel() {
         stepsBeforeSave: 1, // If autosave enabled, indicates how many changes are necessary before store method is triggered
       },
     });
-  });
+  }); */
   return (
     <>
       <Head>
         <title>Painel</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <SideBar name="Nicolas Estanislau" />
-        <p>painel</p>
+      <SideBar name="Nicolas Estanislau" />
+      <p>painel</p>
     </>
   );
 }

@@ -119,6 +119,10 @@
 
 }
 
+.parcel {
+  width: 114px;
+}
+
 @media only screen and (max-width: 756px) {
   .container {
     width: 100%;
@@ -129,10 +133,32 @@
   }
   .installments {
     width: 100%;
+    flex-direction: column;
     /* justify-content: space-evenly; */
   }
 
   .widthStyle {
     width: 100%;
   }
+
+  .mobileAjust {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mobileAjust button {
+    width: 100%;
+  }
+
+  .parcel {
+    width: 100%;
+  }
+
+
+
+  
 }
+
+
+
