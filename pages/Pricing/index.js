@@ -14,6 +14,7 @@ import guarantees from "../../utils/contentGuarantees";
 import formOfPayment from "../../utils/contentFormOfPayment";
 /* Parcelas */
 import installmentsContent from "../../utils/installmentsContent";
+import BoxToggle from "../../component/BoxToggle";
 
 const maskMoney = (value) => {
   /* return value.replace(/\D/g, ""); */
@@ -204,6 +205,7 @@ export default function Pricing() {
             </div>
           </div>
         </div>
+        <BoxToggle />
         <div className={styles.buttonContainer}>
           <ButtonComponent variantContent="outlined" content="Voltar" />
           <ButtonComponent
@@ -211,6 +213,7 @@ export default function Pricing() {
             content="Salvar e continuar"
           />
         </div>
+        
       </div>
     </>
   );

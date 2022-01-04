@@ -75,7 +75,7 @@ export default function SignUp() {
               value={passwordConfirmation}
               required
             />
-            <SelectComponent />
+            {/* <SelectComponent /> */}
             <Link href="/Login">
               <a className={styles.link}>já tenho login</a>
             </Link>

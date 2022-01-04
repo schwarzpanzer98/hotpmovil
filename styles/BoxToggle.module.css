@@ -1,0 +1,17 @@
+.container {
+  margin-top: 16px;
+  border: 1px solid #e6e9ed;
+  border-radius: 0.25rem;
+  padding: 16px;
+}
+
+.text {
+    color: #707780;
+}
+
+.cardContainer {
+    background-color: #f0f4ff;
+    border: 1px solid #89a8f8;
+    border-radius: 0.25rem;
+    padding: 16px;
+}
